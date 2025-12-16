@@ -1,0 +1,56 @@
+<cards>
+  <card>
+    <id>1</id>
+    <title>Portal de facturación OnLine</title>
+    <category>Webs</category>
+    <imgUrl>/assets/FigDesarrollos/FigPortalFacturacion.png</imgUrl>
+    <pdfUrl>/pdfs/FichaWebPortalFac.pdf</pdfUrl>
+    <videoUrl>https://www.loom.com/embed/11b1b4b9295a4b87bc125a10d76d6cc9</videoUrl>
+  </card>
+
+  <card>
+    <id>2</id>
+    <title>App Venta Detalle</title>
+    <category>Apps Móviles</category>
+    <imgUrl>/assets/FigDesarrollos/FigAppVentaDetalle.png</imgUrl>
+    <pdfUrl>/pdfs/FichaAppVentaDetalle.pdf</pdfUrl>
+    <videoUrl>https://www.youtube.com/embed/pyWxkbAAgjo?rel=0</videoUrl>
+  </card>
+
+  <card>
+    <id>3</id>
+    <title>App CRM - Seven</title>
+    <category>Apps Móviles</category>
+    <imgUrl>/assets/FigDesarrollos/FigAppCRM.png</imgUrl>
+    <pdfUrl>/pdfs/FichaAppCRM.pdf</pdfUrl>
+    <videoUrl>https://www.youtube.com/embed/zDJ9slevVGM?rel=0</videoUrl>
+  </card>
+
+  <card>
+    <id>4</id>
+    <title>App Traker</title>
+    <category>Apps Móviles</category>
+    <imgUrl>/assets/FigDesarrollos/FigAppTraker.png</imgUrl>
+    <pdfUrl>/pdfs/FichaAppTraker.pdf</pdfUrl>
+    <videoUrl>https://www.youtube.com/embed/zDJ9slevVGM?start=239&amp;rel=0</videoUrl>
+  </card>
+
+  <card>
+    <id>5</id>
+    <title>Portal Traker</title>
+    <category>Webs</category>
+    <imgUrl>/assets/FigDesarrollos/FigPortalTraker.png</imgUrl>
+    <pdfUrl>/pdfs/FichaPortalTraker.pdf</pdfUrl>
+    <videoUrl>https://www.youtube.com/embed/zDJ9slevVGM?start=239&amp;rel=0</videoUrl>
+  </card>
+
+  <card>
+    <id>6</id>
+    <title>Integración Rappi</title>
+    <category>Integraciones</category>
+    <imgUrl>/assets/FigDesarrollos/FigIntegracionRappi.png</imgUrl>
+    <pdfUrl>/pdfs/FichaIntegracionKeplerRappi.pdf</pdfUrl>
+    <videoUrl></videoUrl>
+  </card>
+</cards>
+

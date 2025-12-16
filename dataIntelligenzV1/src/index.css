@@ -1,0 +1,54 @@
+/* Import de estilos tailwind usados */
+@import "tailwindcss";
+
+html {
+  scroll-behavior: smooth;
+}
+
+/* Variables globales seguras */
+:root {
+  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+  /* color-scheme: light dark; color del fondo*/ 
+}
+
+body {
+  margin: 0; /* Tailwind utilities manejarán layout */
+}
+
+/* Media queries opcionales para esquema de color */
+@media (prefers-color-scheme: light) {
+  :root {
+    color: #213547;
+    background-color: #ffffff;
+  }
+}
+
+
+
+/* Colores propios/definidos por DataIntelligenz */
+/* Fondo rojo */
+.bg-prop-red{
+  background-color: #a9173e;
+}
+/* Texto rojo */
+.text-prop-red{
+  color: #a9173e;
+}
+
+.bg-prop-red-button{
+  background-color: #a9173e;
+}
+.bg-prop-red-button:hover{
+  background-color: #8b1434;
+}
+
+
+/*aplica apra fondos de bloques que necesiten contraste neutro (grises), como secciones secundarias, barras informativas o contenedores discretos.*/
+.bg-prop-gray{
+  background-color: #77777b;
+}
+
+
+/* Agregar aqui debajo las clases(personalizadas) que se requieran para la pagina */

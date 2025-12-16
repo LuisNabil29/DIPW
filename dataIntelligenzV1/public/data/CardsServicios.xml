@@ -1,0 +1,42 @@
+<cards>
+  <card>
+    <id>1</id>
+    <title>Programación</title>
+    <icon>faCode</icon>
+    <text>
+      Contamos con programadores fullstack y líderes de proyectos altamente capacitados,
+      comprometidos con desarrollar el proyecto que tienes en mente.
+      Soluciones con Partners estratégicos en ERP con más de 20 años de.
+    </text>
+  </card>
+
+  <card>
+    <id>2</id>
+    <title>Ecommerce  SEO</title>
+    <icon>faShoppingCart</icon>
+    <text>
+      Soluciones para la integración de tu tienda en línea.
+      Asesoramiento en campañas SEO para mejorar el posicionamiento de tu sitio web.
+    </text>
+  </card>
+
+  <card>
+    <id>3</id>
+    <title>Mobile Apps</title>
+    <icon>faMobileAlt</icon>
+    <text>
+      Desarrollos móviles adaptados a tu modelo de negocio.
+      Integración con Web Services.
+    </text>
+  </card>
+
+  <card>
+    <id>4</id>
+    <title>VM Cloud</title>
+    <icon>faDatabase</icon>
+    <text>
+      Servidores virtuales Windows en la nube.
+      Soporte en español y asesoramiento para elegir tus servicios en la nube.
+    </text>
+  </card>
+</cards>

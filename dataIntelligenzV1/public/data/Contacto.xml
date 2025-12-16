@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<contacto>
+  <telefono display="442 343 0666" link="+524423430666" />
+  <correo>luis.ruiz@kepler.com.mx</correo>
+
+   <redes>
+    <instagram>https://www.instagram.com/tu_perfil</instagram>
+    <facebook>https://www.facebook.com/tu_pagina</facebook>
+    <linkedin>https://www.linkedin.com/in/tu_perfil</linkedin>
+  </redes>
+  
+</contacto>
