@@ -44,8 +44,7 @@ body {
   background-color: #8b1434;
 }
 
-
-/*aplica apra fondos de bloques que necesiten contraste neutro (grises), como secciones secundarias, barras informativas o contenedores discretos.*/
+/*aplica para fondos de bloques que necesiten contraste neutro (grises), como secciones secundarias, barras informativas o contenedores discretos.*/
 .bg-prop-gray{
   background-color: #77777b;
 }

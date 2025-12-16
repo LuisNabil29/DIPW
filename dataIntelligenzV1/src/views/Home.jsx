@@ -25,14 +25,14 @@ function Home() {
                 <QuienesSomos />
             </div>
 
-             {/* Servicios (sección pesada) */}
+             {/* Servicios*/}
             <div id="servicios">
                 <Suspense fallback={<SkeletonBlock />}>
                 <Servicios />
                 </Suspense>
             </div>
 
-            {/* Desarrollos (otra sección pesada) */}
+            {/* Desarrollos */}
             <div id="desarrollos">
                 <Suspense fallback={<SkeletonBlock />}>
                 <Desarrollos />

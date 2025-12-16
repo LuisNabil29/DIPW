@@ -1,4 +1,3 @@
-
 import React, { Suspense } from "react";
 
 const Spline = React.lazy(() => import('@splinetool/react-spline'));

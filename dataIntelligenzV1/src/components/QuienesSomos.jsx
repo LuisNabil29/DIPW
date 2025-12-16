@@ -1,6 +1,5 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCheckCircle } from "@fortawesome/free-solid-svg-icons/faCheckCircle";
-import { faBullseye } from "@fortawesome/free-solid-svg-icons/faBullseye";
 import { faHandshakeAlt } from "@fortawesome/free-solid-svg-icons/faHandshakeAlt";
 
 
