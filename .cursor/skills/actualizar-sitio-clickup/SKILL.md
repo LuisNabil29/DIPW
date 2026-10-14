@@ -2,9 +2,9 @@
 name: actualizar-sitio-clickup
 description: >-
   Actualiza la sección Apps y Desarrollos del sitio DataIntelligenz desde la
-  lista SitioData de ClickUp. Usar cuando pidan actualizar, publicar o
-  rediseñar la página de forma periódica a partir de ClickUp, SitioData o
-  las tareas en estado publicar.
+  lista SitioData de ClickUp y, al terminar, hace commit y push a main.
+  Usar cuando pidan actualizar, publicar o rediseñar la página de forma
+  periódica a partir de ClickUp, SitioData o las tareas en estado publicar.
 ---
 
 # Actualizar el sitio desde SitioData
@@ -55,4 +55,10 @@ Reescribe `dataIntelligenzV1/public/data/CardsDesarrollos.xml` solo con las tare
 
 En PowerShell no uses `&&`. Si el puerto `5173` está libre, arranca `npm run dev` en `dataIntelligenzV1`. Abre `http://localhost:5173/#desarrollos` y confirma que cada tarjeta en `publicar` muestra su imagen y la frase de la descripción, que el mundo abre el sitio y que el PDF abre la ficha. El filtro `Webs` las deja; `Apps Móviles` e `Integraciones` las ocultan cuando su categoría es `Webs`.
 
-No hagas commit salvo que lo pidan.
+## Commit y push
+
+Al terminar la comprobación, haz commit y push a `main`. Si no hay cambios, no crees un commit vacío.
+
+Revisa en paralelo `git status`, `git diff` y `git log --oneline -10`. Agrega solo los archivos de esta actualización (XML, componente, miniaturas, PDF y este skill). No agregues secretos (`.env`, credenciales).
+
+El mensaje va en español, en una o dos frases, y explica el porqué. En PowerShell no uses heredoc: escribe el mensaje en `.git/COMMIT_EDITMSG_TMP`, haz `git commit -F .git/COMMIT_EDITMSG_TMP` y borra ese archivo. Luego `git push` para publicarlo en `origin/main` y confirma con `git status` que `main` quedó al día con el remoto.
