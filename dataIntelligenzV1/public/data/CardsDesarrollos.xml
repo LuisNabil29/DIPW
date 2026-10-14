@@ -4,6 +4,7 @@
     <title>CollectGuard</title>
     <category>Webs</category>
     <imgUrl>/assets/FigDesarrollos/CollectGuard-thumbnail.jpg</imgUrl>
+    <description>Automatiza la cobranza del ERP Kepler con recordatorios, estados de cuenta y control de límites de crédito.</description>
     <pdfUrl>/pdfs/CollectGuard.pdf</pdfUrl>
     <videoUrl></videoUrl>
     <siteUrl>https://collectguard.net</siteUrl>
@@ -14,8 +15,31 @@
     <title>CashGuard</title>
     <category>Webs</category>
     <imgUrl>/assets/FigDesarrollos/CashGuard-thumbnail.jpg</imgUrl>
+    <description>Proyecta el flujo de efectivo con los cobros, pagos y saldos de Kepler, antes de que falte liquidez.</description>
     <pdfUrl>/pdfs/CashGuard.pdf</pdfUrl>
     <videoUrl></videoUrl>
     <siteUrl>https://cashguard.dataintelligenz.net/</siteUrl>
+  </card>
+
+  <card>
+    <id>3</id>
+    <title>DashContable</title>
+    <category>Webs</category>
+    <imgUrl>/assets/FigDesarrollos/DashContable-thumbnail.jpg</imgUrl>
+    <description>Convierte la contabilidad de tu ERP Kepler en dashboards, estados financieros y razones, sin abrir el ERP.</description>
+    <pdfUrl></pdfUrl>
+    <videoUrl></videoUrl>
+    <siteUrl>https://dashcontable.dnsalias.net/</siteUrl>
+  </card>
+
+  <card>
+    <id>4</id>
+    <title>Portal de Proveedores</title>
+    <category>Webs</category>
+    <imgUrl>/assets/FigDesarrollos/PortalProveedores-thumbnail.jpg</imgUrl>
+    <description>Portal de proveedores conectado al ERP Kepler.</description>
+    <pdfUrl></pdfUrl>
+    <videoUrl>https://www.youtube.com/embed/rt5FYhBOcuE</videoUrl>
+    <siteUrl></siteUrl>
   </card>
 </cards>

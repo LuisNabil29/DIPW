@@ -33,6 +33,7 @@ function Desarrollos() {
           category: get(node, "category"),
           icon: iconMap[get(node, "icon")] || faFile,
           imgUrl: get(node, "imgUrl"),
+          description: get(node, "description"),
           pdfUrl: get(node, "pdfUrl"),
           videoUrl: get(node, "videoUrl"),
           siteUrl: get(node, "siteUrl"),
@@ -130,6 +131,9 @@ function Desarrollos() {
                     />
                   )}
 
+                  {card.description && (
+                    <p className="text-slate-800 text-base font-medium leading-snug mb-3">{card.description}</p>
+                  )}
 
                   <p className="text-gray-600 text-sm mb-1">Más información:</p>
                 </div>
@@ -157,7 +161,7 @@ function Desarrollos() {
                     </a>
                   )}
 
-                  {/* Botón PDF */}
+                  {card.pdfUrl && (
                   <button
                       className="group w-10 h-10 flex items-center justify-center
                                 rounded-full bg-gray-200
@@ -176,6 +180,7 @@ function Desarrollos() {
                                   transition-colors"
                       />
                     </button>
+                  )}
 
                   {/* Botón Video */}
                   {card.videoUrl && (
