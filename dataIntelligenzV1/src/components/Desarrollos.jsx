@@ -35,6 +35,7 @@ function Desarrollos() {
           imgUrl: get(node, "imgUrl"),
           pdfUrl: get(node, "pdfUrl"),
           videoUrl: get(node, "videoUrl"),
+          siteUrl: get(node, "siteUrl"),
         }));
 
         parsedCards.sort((a, b) => a.id - b.id);
@@ -136,6 +137,26 @@ function Desarrollos() {
 
                 {/* Iconos de acción */}
                 <div className="flex items-center justify-center gap-5 mt-auto">
+                  {card.siteUrl && (
+                    <a
+                      href={card.siteUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="group w-10 h-10 flex items-center justify-center
+                                rounded-full bg-gray-200
+                                hover:bg-red-800
+                                transition-colors cursor-pointer"
+                      title="Abrir sitio"
+                    >
+                      <FontAwesomeIcon
+                        icon={faGlobe}
+                        className="text-red-800 text-2xl
+                                  group-hover:text-gray-200
+                                  transition-colors"
+                      />
+                    </a>
+                  )}
+
                   {/* Botón PDF */}
                   <button
                       className="group w-10 h-10 flex items-center justify-center
