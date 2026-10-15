@@ -27,7 +27,7 @@
     <category>Webs</category>
     <imgUrl>/assets/FigDesarrollos/DashContable-thumbnail.jpg</imgUrl>
     <description>Convierte la contabilidad de tu ERP Kepler en dashboards, estados financieros y razones, sin abrir el ERP.</description>
-    <pdfUrl></pdfUrl>
+    <pdfUrl>/pdfs/DashContable.pdf</pdfUrl>
     <videoUrl></videoUrl>
     <siteUrl>https://dashcontable.dnsalias.net/</siteUrl>
   </card>
