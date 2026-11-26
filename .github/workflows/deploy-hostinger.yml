@@ -1,0 +1,55 @@
+name: Deploy to Hostinger (FTP)
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+env:
+  SERVER_DIR: ${{ secrets.FTP_SERVER_DIR }}
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+          cache-dependency-path: dataIntelligenzV1/package-lock.json
+
+      - name: Install dependencies
+        working-directory: dataIntelligenzV1
+        run: npm ci
+
+      - name: Build
+        working-directory: dataIntelligenzV1
+        run: npm run build
+
+      - name: Add .htaccess for SPA routing
+        run: |
+          printf '%s\n' \
+            'RewriteEngine On' \
+            'RewriteBase /' \
+            '' \
+            'RewriteCond %{REQUEST_FILENAME} !-f' \
+            'RewriteCond %{REQUEST_FILENAME} !-d' \
+            '' \
+            'RewriteRule ^ index.html [QSA,L]' \
+            > dataIntelligenzV1/dist/.htaccess
+
+      - name: Deploy via FTPS
+        uses: SamKirkland/FTP-Deploy-Action@v4.3.5
+        with:
+          server: ${{ secrets.FTP_SERVER }}
+          username: ${{ secrets.FTP_USERNAME }}
+          password: ${{ secrets.FTP_PASSWORD }}
+          local-dir: dataIntelligenzV1/dist/
+          server-dir: ${{ env.SERVER_DIR || 'public_html/' }}
+          protocol: ftps
+          port: 21
