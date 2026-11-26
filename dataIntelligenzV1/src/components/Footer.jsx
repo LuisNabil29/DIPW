@@ -2,7 +2,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faFacebook, faTwitter, faLinkedin, faInstagram } from "@fortawesome/free-brands-svg-icons";
 import { HashLink } from "react-router-hash-link";
 import { Link } from "react-router-dom";
-import useContactoData from "./hooks/ContactoData";
+import useContactoData from "./Hooks/ContactoData";
 
 function Footer() {
 
