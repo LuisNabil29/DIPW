@@ -140,7 +140,7 @@ function Inicio() {
         <dl className="max-w-7xl mx-auto px-6 py-5 grid grid-cols-1 sm:grid-cols-3 gap-4 text-white">
           {stats.map((stat) => (
             <div key={stat.label} className="flex items-baseline gap-3">
-              <dt className="font-display text-2xl font-bold text-rose-300">{stat.value}</dt>
+              <dt className="font-display text-xl sm:text-2xl font-bold text-rose-300 whitespace-nowrap">{stat.value}</dt>
               <dd className="text-sm text-slate-300">{stat.label}</dd>
             </div>
           ))}
