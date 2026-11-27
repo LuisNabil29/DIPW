@@ -32,6 +32,7 @@ export default function useContactoData() {
             instagram: redesNode.querySelector("instagram")?.textContent || "",
             facebook: redesNode.querySelector("facebook")?.textContent || "",
             linkedin: redesNode.querySelector("linkedin")?.textContent || "",
+            youtube: redesNode.querySelector("youtube")?.textContent || "",
           }
         });
       })

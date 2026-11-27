@@ -1,5 +1,5 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faFacebook, faTwitter, faLinkedin, faInstagram } from "@fortawesome/free-brands-svg-icons";
+import { faFacebook, faLinkedin, faInstagram, faYoutube } from "@fortawesome/free-brands-svg-icons";
 import { HashLink } from "react-router-hash-link";
 import { Link } from "react-router-dom";
 import useContactoData from "./Hooks/ContactoData";
@@ -44,6 +44,11 @@ function Footer() {
             <a href={contacto.redes.linkedin} target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" className="hover:text-blue-300 transition">
               <FontAwesomeIcon icon={faLinkedin} size="2x" />
             </a>
+            {contacto.redes.youtube ? (
+              <a href={contacto.redes.youtube} target="_blank" rel="noopener noreferrer" aria-label="YouTube" className="hover:text-red-500 transition">
+                <FontAwesomeIcon icon={faYoutube} size="2x" />
+              </a>
+            ) : null}
           </div>
         </div>
 
