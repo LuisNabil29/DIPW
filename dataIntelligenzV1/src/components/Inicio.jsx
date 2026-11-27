@@ -105,7 +105,7 @@ function Inicio() {
             Bienvenido a <span className="italic"> DATAIntelligenz</span>
           </h2>
           <p className="text-base md:text-lg text-justify">
-            Somos una empresa con más de 20 años de experiencia en la captura, manejo y uso de información para la toma de decisiones.
+            Inteligencia artificial y automatización de procesos conectadas a tu ERP, con más de 20 años de experiencia convirtiendo datos en decisiones.
           </p>
         </div>
       </div>

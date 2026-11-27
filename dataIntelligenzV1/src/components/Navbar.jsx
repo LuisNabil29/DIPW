@@ -2,6 +2,14 @@ import { useState, useEffect, useRef  } from "react";
 import { Link } from "react-router-dom";
 import { HashLink } from 'react-router-hash-link';
 
+const sectionLinks = [
+    { to: "/#quienes-somos", label: "Quienes Somos" },
+    { to: "/#ia-automatizacion", label: "IA y Automatización" },
+    { to: "/#servicios", label: "Servicios" },
+    { to: "/#desarrollos", label: "Apps y Desarrollos" },
+];
+
+const linkUnderline = "text-black relative after:content-[''] after:block after:w-0 after:h-[2px] after:bg-red-900 after:transition-all after:duration-300 hover:after:w-full";
 
 function Navbar() {
     const [scrolled, setScrolled] = useState(false);
@@ -12,7 +20,7 @@ function Navbar() {
 
     useEffect(() => {
         const handleScroll = () => {
-        setScrolled(window.scrollY > 10); // cambia después de 50px
+        setScrolled(window.scrollY > 10);
         };
         window.addEventListener("scroll", handleScroll);
         return () => window.removeEventListener("scroll", handleScroll);
@@ -30,7 +38,10 @@ function Navbar() {
         return () => document.removeEventListener("mousedown", handleClickOutside);
         }, []);
 
-
+    const goHome = () => {
+        closeMenu();
+        window.scrollTo({ top: 0, behavior: "smooth" });
+    };
 
     return(
         <nav
@@ -41,65 +52,44 @@ function Navbar() {
             <div className="max-w-7xl mx-auto flex items-center justify-between mt-1">
 
                 {/* Logo a la izquierda */}
-                <a href="/" className="flex items-center gap-1 cursor-pointer">
-                <img src="/assets/dataintelligenz.png" alt="Logo" className="h-12" loading="lazy" />
-                </a>
+                <Link to="/" onClick={goHome} className="flex items-center gap-1 cursor-pointer">
+                <img src="/assets/dataintelligenz.png" alt="DataIntelligenz" className="h-12" />
+                </Link>
 
 
                 <button 
                     className="md:hidden text-black text-3xl"
                     onClick={() => setOpenMenu(!openMenu)}
+                    aria-label="Abrir menú"
                     >
                     ☰
                 </button>
 
                 {/* Vinculos del centro */}
-                <div className="flex-grow flex justify-end mr-2 gap-4 
-                max-md:hidden">
-                <Link
-                    to="/"
-                    onClick={() => {
-                        closeMenu();
-                        window.scrollTo({ top: 0, behavior: "smooth" });
-                    }}
-                    className="text-black relative after:content-[''] after:block after:w-0 after:h-[2px] after:bg-red-900 after:transition-all after:duration-300 hover:after:w-full"
-                    >
+                <div className="flex-grow flex justify-end mr-2 gap-4 max-md:hidden">
+                <Link to="/" onClick={goHome} className={linkUnderline}>
                     Inicio
                 </Link>
 
-                <HashLink 
-                    smooth 
-                    to="/#quienes-somos" 
-                    className="text-black relative after:content-[''] after:block after:w-0 after:h-[2px] after:bg-red-900 after:transition-all after:duration-300 hover:after:w-full"
-                >
-                    Quienes Somos
-                </HashLink>
+                {sectionLinks.map((link) => (
+                    <HashLink key={link.to} smooth to={link.to} className={linkUnderline}>
+                        {link.label}
+                    </HashLink>
+                ))}
 
-                <HashLink 
-                    smooth 
-                    to="/#servicios" 
-                    className="text-black relative after:content-[''] after:block after:w-0 after:h-[2px] after:bg-red-900 after:transition-all after:duration-300 hover:after:w-full"
-                >
-                    Servicios
-                </HashLink>
-
-                <HashLink 
-                    smooth 
-                    to="/#desarrollos" 
-                    className="text-black relative after:content-[''] after:block after:w-0 after:h-[2px] after:bg-red-900 after:transition-all after:duration-300 hover:after:w-full"
-                >
-                    Apps y Desarrollos
-                </HashLink>
+                <Link to="/blog" className={linkUnderline}>
+                    Blog
+                </Link>
                 </div>
 
-                {/* Contacto / login */}
+                {/* Contacto */}
                 <div className="flex items-center gap-4 ml-auto max-md:hidden lg:flex">
-                    <a
-                        href="/contacto"
+                    <Link
+                        to="/contacto"
                         className="px-6 py-2 border border-black text-black rounded-full hover:bg-red-900 hover:text-white hover:border-red-900 transition duration-300"
                     >
                         Contacto
-                    </a>
+                    </Link>
                 </div>
 
 
@@ -109,20 +99,16 @@ function Navbar() {
             {/* Menu Desplegable pantallas mas pequeñas */}
             {openMenu && (
             <div ref={menuRef} className="md:hidden flex flex-col bg-white p-4 gap-4 text-black">
-                <Link
-                    to="/"
-                    onClick={() => {
-                        closeMenu();
-                        window.scrollTo({ top: 0, behavior: "smooth" });
-                    }}
-                    className="py-2"
-                    >
+                <Link to="/" onClick={goHome} className="py-2">
                     Inicio
                 </Link>
-                <HashLink smooth to="/#quienes-somos" className="py-2" onClick={closeMenu}>Quienes Somos</HashLink>
-                <HashLink smooth to="/#servicios" className="py-2" onClick={closeMenu}>Servicios</HashLink>
-                <HashLink smooth to="/#desarrollos" className="py-2" onClick={closeMenu}>Apps y Desarrollos</HashLink>
-                <a href="/contacto" className="py-2" onClick={closeMenu}>Contacto</a>
+                {sectionLinks.map((link) => (
+                    <HashLink key={link.to} smooth to={link.to} className="py-2" onClick={closeMenu}>
+                        {link.label}
+                    </HashLink>
+                ))}
+                <Link to="/blog" className="py-2" onClick={closeMenu}>Blog</Link>
+                <Link to="/contacto" className="py-2" onClick={closeMenu}>Contacto</Link>
             </div>
             )}
 

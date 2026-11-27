@@ -1,43 +1,62 @@
 <cards>
   <card>
     <id>1</id>
-    <title>Programación</title>
-    <icon>faCode</icon>
+    <title>Inteligencia Artificial Aplicada</title>
+    <icon>faBrain</icon>
     <text>
-      Contamos con programadores fullstack y líderes de proyectos altamente capacitados,
-      comprometidos con desarrollar el proyecto que tienes en mente.
-      Soluciones con Partners estratégicos en ERP con más de 20 años de.
+      Agentes de IA conectados a tu ERP, asistentes internos que responden preguntas
+      operativas y financieras en lenguaje natural, y lectura inteligente de documentos.
     </text>
   </card>
 
   <card>
     <id>2</id>
-    <title>Ecommerce  SEO</title>
-    <icon>faShoppingCart</icon>
+    <title>Automatización de Procesos</title>
+    <icon>faGears</icon>
     <text>
-      Soluciones para la integración de tu tienda en línea.
-      Asesoramiento en campañas SEO para mejorar el posicionamiento de tu sitio web.
+      Eliminamos la captura manual en cobranza, tesorería, compras, facturación y
+      conciliaciones con flujos automáticos conectados a tu ERP.
     </text>
   </card>
 
   <card>
     <id>3</id>
-    <title>Mobile Apps</title>
-    <icon>faMobileAlt</icon>
+    <title>Desarrollo e Integración ERP</title>
+    <icon>faCode</icon>
     <text>
-      Desarrollos móviles adaptados a tu modelo de negocio.
-      Integración con Web Services.
+      Programadores fullstack y líderes de proyecto que construyen aplicaciones web,
+      portales e integraciones por API y Web Services, respaldados por partners ERP
+      con más de 20 años de experiencia.
     </text>
   </card>
 
   <card>
     <id>4</id>
-    <title>VM Cloud</title>
-    <icon>faDatabase</icon>
+    <title>Analítica de Datos y BI</title>
+    <icon>faChartLine</icon>
     <text>
-      Servidores virtuales Windows en la nube.
-      Soporte en español y asesoramiento para elegir tus servicios en la nube.
+      Datawarehouse, tableros ejecutivos y alertas que convierten los datos de tu
+      operación en información útil para decidir a tiempo.
     </text>
   </card>
-  
+
+  <card>
+    <id>5</id>
+    <title>Apps Móviles y Ecommerce</title>
+    <icon>faMobileAlt</icon>
+    <text>
+      Aplicaciones móviles integradas a tu ERP, tiendas en línea y asesoría SEO
+      para mejorar el posicionamiento de tu sitio web.
+    </text>
+  </card>
+
+  <card>
+    <id>6</id>
+    <title>VM Cloud</title>
+    <icon>faCloud</icon>
+    <text>
+      Servidores virtuales Windows en la nube, con soporte en español y asesoría
+      para elegir la infraestructura adecuada para tus sistemas.
+    </text>
+  </card>
 </cards>

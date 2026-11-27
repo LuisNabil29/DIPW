@@ -2,6 +2,8 @@ import React, { Suspense } from "react";
 
 import Inicio from "../components/Inicio";
 import QuienesSomos from "../components/QuienesSomos";
+import SolucionesIA from "../components/SolucionesIA";
+import BlogPreview from "../components/BlogPreview";
 const Servicios = React.lazy(() => import("../components/Servicios"));
 const Desarrollos = React.lazy(() => import("../components/Desarrollos"));
 
@@ -25,6 +27,11 @@ function Home() {
                 <QuienesSomos />
             </div>
 
+            {/* IA y Automatización */}
+            <div id="ia-automatizacion">
+                <SolucionesIA />
+            </div>
+
              {/* Servicios*/}
             <div id="servicios">
                 <Suspense fallback={<SkeletonBlock />}>
@@ -37,6 +44,11 @@ function Home() {
                 <Suspense fallback={<SkeletonBlock />}>
                 <Desarrollos />
                 </Suspense>
+            </div>
+
+            {/* Blog */}
+            <div id="blog">
+                <BlogPreview />
             </div>
 
         </div>

@@ -2,6 +2,12 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCheckCircle } from "@fortawesome/free-solid-svg-icons/faCheckCircle";
 import { faHandshakeAlt } from "@fortawesome/free-solid-svg-icons/faHandshakeAlt";
 
+const highlights = [
+  "Agentes de IA y automatización conectados al ERP",
+  "Desarrollos Web y Apps Móviles integrados al ERP",
+  "Integraciones Web Services y APIs",
+  "Analítica de datos e inteligencia de negocio",
+];
 
 function QuienesSomos() {
   return (
@@ -40,27 +46,19 @@ function QuienesSomos() {
             </div>
 
             <span className="font-raleway text-lg">
-              Nuestro enfoque es agilizar la captura de datos por diversos medios como sistemas ERP,
-              Aplicaciones móviles, portales WEB, etc. para convertir estos datos en información útil que
-              sustente la toma de decisiones por medio de herramientas de análisis de datos como Datawarehouse
-              e inteligencia de negocio.
+              Agilizamos la captura de datos desde sistemas ERP, aplicaciones móviles y portales web,
+              y los convertimos en información útil para decidir con Datawarehouse e inteligencia de negocio.
+              Hoy sumamos inteligencia artificial y automatización para que esa información también
+              actúe: agentes que responden con datos reales y flujos que eliminan el trabajo manual.
             </span>
 
             <div className="space-y-2 mt-8 text-lg">
-              <div className="flex items-center">
-                <FontAwesomeIcon icon={faCheckCircle} className="text-prop-red mr-2" />
-                <span>Desarrollos Interfaz Web - ERP</span>
-              </div>
-
-              <div className="flex items-center">
-                <FontAwesomeIcon icon={faCheckCircle} className="text-prop-red mr-2" />
-                <span>Desarrollos Móviles App - ERP</span>
-              </div>
-
-              <div className="flex items-center">
-                <FontAwesomeIcon icon={faCheckCircle} className="text-prop-red mr-2" />
-                <span>Integraciones Web Services</span>
-              </div>
+              {highlights.map((item) => (
+                <div key={item} className="flex items-center">
+                  <FontAwesomeIcon icon={faCheckCircle} className="text-prop-red mr-2" />
+                  <span>{item}</span>
+                </div>
+              ))}
             </div>
           </div>
 

@@ -72,6 +72,11 @@ function Footer() {
               </HashLink>
             </li>
             <li>
+              <HashLink smooth to="/#ia-automatizacion" className="hover:text-red-400 transition">
+                IA y Automatización
+              </HashLink>
+            </li>
+            <li>
               <HashLink smooth to="/#servicios" className="hover:text-red-400 transition">
                 Servicios
               </HashLink>
@@ -80,6 +85,11 @@ function Footer() {
               <HashLink smooth to="/#desarrollos" className="hover:text-red-400 transition">
                 Apps y Desarrollos
               </HashLink>
+            </li>
+            <li>
+              <Link to="/blog" className="hover:text-red-400 transition">
+                Blog
+              </Link>
             </li>
           </ul>
         </div>
@@ -92,12 +102,12 @@ function Footer() {
           <p className="text-gray-300 mb-4">Correo: {contacto.correo}</p>
          
           {/* Botón de contacto */}
-          <a
-            href="/contacto"
+          <Link
+            to="/contacto"
             className="hover:text-red-400 transition"
           >
             Ir a Contacto
-          </a>
+          </Link>
         </div>
 
       </div>

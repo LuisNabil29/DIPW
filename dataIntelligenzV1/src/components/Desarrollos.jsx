@@ -1,18 +1,18 @@
 import { useState,useEffect  } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faMobileAlt, faGlobe, faClone, faFile, faVideo } from "@fortawesome/free-solid-svg-icons";
+import { faMobileAlt, faGlobe, faClone, faFile } from "@fortawesome/free-solid-svg-icons";
 import { faYoutube } from "@fortawesome/free-brands-svg-icons";
-import { motion, AnimatePresence } from "motion/react";
+import { motion as Motion, AnimatePresence } from "motion/react";
 import ModalDesarrollos from "./Modals/ModalDesarrollos";
 
+const iconMap = {
+  faMobileAlt: faMobileAlt,
+  faGlobe: faGlobe,
+  faClone: faClone,
+  faFile: faFile,
+};
+
 function Desarrollos() {
-  
-    const iconMap = {
-    faMobileAlt: faMobileAlt,
-    faGlobe: faGlobe,
-    faClone: faClone,
-    faFile: faFile,
-  };
 
 
   //useEffect para obtner los datos de el xml para las cards de desarrollos
@@ -106,7 +106,7 @@ function Desarrollos() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
           <AnimatePresence>
             {filteredCards.map((card) => (
-              <motion.div
+              <Motion.div
                 key={card.id}
                 initial={{ opacity: 0, scale: 0.9, y: 30 }}
                 animate={{ opacity: 1, scale: 1, y: 0 }}
@@ -205,7 +205,7 @@ function Desarrollos() {
                 </div>
 
 
-              </motion.div>
+              </Motion.div>
             ))}
           </AnimatePresence>
         </div>

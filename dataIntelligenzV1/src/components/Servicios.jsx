@@ -1,20 +1,29 @@
 import { useState, useEffect } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
+  faBrain,
+  faGears,
   faCode,
+  faChartLine,
   faShoppingCart,
   faMobileAlt,
   faDatabase,
+  faCloud,
   faFile,
 } from "@fortawesome/free-solid-svg-icons";
 
+const iconMap = {
+  faBrain,
+  faGears,
+  faCode,
+  faChartLine,
+  faShoppingCart,
+  faMobileAlt,
+  faDatabase,
+  faCloud,
+};
+
 function Servicios() {
-  const iconMap = {
-    faCode,
-    faShoppingCart,
-    faMobileAlt,
-    faDatabase,
-  };
 
   const [cards, setCards] = useState([]);
 
@@ -70,7 +79,7 @@ function Servicios() {
           LO QUE OFRECEMOS
         </h2>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {cards.map((card) => (
             <div
               key={card.id}
