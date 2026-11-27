@@ -109,21 +109,20 @@ function Inicio() {
           <div className="max-w-2xl text-white">
             <span className="inline-flex items-center gap-2 rounded-full border border-white/25 bg-white/10 px-4 py-1.5 text-xs font-semibold uppercase tracking-[0.18em] backdrop-blur">
               <span className="h-2 w-2 rounded-full bg-rose-400" />
-              IA y Automatización Empresarial
+              IA y automatización de procesos empresariales
             </span>
             <h1 className="font-display mt-6 text-4xl md:text-6xl font-extrabold leading-[1.05] tracking-tight">
-              Datos que deciden.
+              Tu ERP ya tiene los datos.
               <br />
-              <span className="text-rose-300">Procesos que se automatizan.</span>
+              <span className="text-rose-300">Nosotros los ponemos a trabajar.</span>
             </h1>
             <p className="mt-6 text-base md:text-lg text-slate-200 leading-relaxed">
-              Conectamos inteligencia artificial y automatización a tu ERP para eliminar
-              el trabajo manual y anticipar decisiones. Más de 20 años convirtiendo datos
-              en resultados.
+              Agentes de inteligencia artificial y flujos automáticos conectados a tu ERP para
+              cobrar, conciliar, proyectar y alertar sin trabajo manual.
             </p>
             <div className="mt-8 flex flex-wrap gap-3">
               <HashLink smooth to="/#ia-automatizacion" className="btn-primary">
-                Explorar soluciones IA
+                Ver soluciones de IA
               </HashLink>
               <Link
                 to="/contacto"
