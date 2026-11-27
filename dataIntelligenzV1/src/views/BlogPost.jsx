@@ -32,7 +32,9 @@ function BlogPost() {
           <Link to="/blog" className="text-sm font-semibold text-brand hover:underline">
             ← Volver al blog
           </Link>
-          <span className="mt-8 block section-eyebrow">{post.category}</span>
+          <div className="mt-8">
+            <span className="section-eyebrow">{post.category}</span>
+          </div>
           <h1 className="font-display mt-3 text-3xl md:text-5xl font-extrabold leading-tight tracking-tight text-slate-900">
             {post.title}
           </h1>
