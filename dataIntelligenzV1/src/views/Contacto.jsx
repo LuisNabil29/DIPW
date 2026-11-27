@@ -4,6 +4,7 @@ import { faPhone, faEnvelope } from "@fortawesome/free-solid-svg-icons";
 import ModalAviso from "../components/Modals/ModalAviso"; 
 import useContactoData from "../components/Hooks/ContactoData";
 
+const inputStyle = "mt-2 block w-full rounded-xl border border-slate-300 bg-white px-4 py-3 text-sm text-slate-900 focus:border-brand focus:outline-none focus:ring-2 focus:ring-brand/15";
 
 function Contacto() {
 
@@ -61,121 +62,79 @@ function Contacto() {
 
 
   return (
-    <div className="w-full text-white py-12 relative overflow-hidden">
-      <div className=" text-gray-800 px-6 py-16 md:px-20">
+    <div className="w-full bg-slate-50">
+      <div className="max-w-7xl mx-auto px-6 py-20 grid grid-cols-1 lg:grid-cols-2 gap-12">
+        <div>
+          <span className="section-eyebrow">Contacto</span>
+          <h1 className="section-title mt-3 md:!text-5xl">Hablemos de tu próximo proceso automatizado</h1>
+          <p className="section-lead max-w-xl">
+            Cuéntanos qué quieres resolver: un proceso manual, una integración con tu ERP o una
+            idea de inteligencia artificial. Te respondemos con una propuesta concreta.
+          </p>
 
-        <h2 className="text-3xl md:text-4xl font-bold text-center mb-8">Contactanos</h2>
-        <p className="text-center max-w-2xl mx-auto italic">
-          Ponte en contacto con nosotros para conocer más sobre nuestros servicios, solicitar una propuesta personalizada o resolver cualquier duda. 
-          Estamos listos para ayudarte a llevar tu proyecto al siguiente nivel.
-        </p>
-
-        {/*cantidad de coumnas(responsivas)*/}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 pt-15">
-
-          {/*parte izquierda*/}
-          <div className="md:col-span-1 p-4">
-            <div className="space-y-6 mt-8 text-lg">
-              {/* Teléfono */}
-              <div className="flex flex-col items-center pb-12">
-                <a href={`tel:${contacto.telefono.link}`}>
-                  <FontAwesomeIcon icon={faPhone} className="text-4xl text-prop-red mb-2" />
-                </a>
-                <span className="text-xl">{contacto.telefono.display}</span>
-              </div>
-
-              {/* Correo */}
-              <div className="flex flex-col items-center">
-                <a href={`mailto:${contacto.correo}`} >
-                  <FontAwesomeIcon icon={faEnvelope} className="text-4xl text-prop-red mb-2" />
-                </a>
-                <span className="text-xl italic">{contacto.correo}</span>
-              </div>
-            </div>
-
+          <div className="mt-10 space-y-4">
+            <a
+              href={`tel:${contacto.telefono.link}`}
+              className="flex items-center gap-4 rounded-2xl border border-slate-200 bg-white p-5 transition hover:border-brand/40"
+            >
+              <span className="flex h-12 w-12 items-center justify-center rounded-xl bg-brand-soft text-brand">
+                <FontAwesomeIcon icon={faPhone} />
+              </span>
+              <span>
+                <span className="block text-xs uppercase tracking-wider text-slate-500">Teléfono</span>
+                <span className="font-display font-semibold text-slate-900">{contacto.telefono.display}</span>
+              </span>
+            </a>
+            <a
+              href={`mailto:${contacto.correo}`}
+              className="flex items-center gap-4 rounded-2xl border border-slate-200 bg-white p-5 transition hover:border-brand/40"
+            >
+              <span className="flex h-12 w-12 items-center justify-center rounded-xl bg-brand-soft text-brand">
+                <FontAwesomeIcon icon={faEnvelope} />
+              </span>
+              <span>
+                <span className="block text-xs uppercase tracking-wider text-slate-500">Correo</span>
+                <span className="font-display font-semibold text-slate-900">{contacto.correo}</span>
+              </span>
+            </a>
           </div>
-
-          {/*perte derecha*/}
-          <div className="md:col-span-1 p-4 ">
-            <div className="bg-gray-100 shadow-lg rounded-lg p-4">
-              <form className="space-y-4" onSubmit={handleSubmit}>
-                {/* Nombre */}
-                <div>
-                  <label htmlFor="nombre" className="block text-sm font-medium text-gray-700">
-                    Nombre
-                  </label>
-                  <input
-                    type="text"
-                    id="nombre"
-                    name="nombre"
-                    placeholder="Nombre"
-                    className="mt-1 block w-full rounded-md border border-gray-300 shadow-sm p-2 focus:ring-blue-500 focus:border-blue-500"
-                    required
-                  />
-                </div>
-
-                {/* Correo */}
-                <div>
-                  <label htmlFor="correo" className="block text-sm font-medium text-gray-700">
-                    Correo
-                  </label>
-                  <input
-                    type="email"
-                    id="correo"
-                    name="correo"
-                    placeholder="tu@email.com"
-                    className="mt-1 block w-full rounded-md border border-gray-300 shadow-sm p-2 focus:ring-blue-500 focus:border-blue-500"
-                    required
-                  />
-                </div>
-
-                {/* Mensaje */}
-                <div>
-                  <label htmlFor="mensaje" className="block text-sm font-medium text-gray-700">
-                    Mensaje
-                  </label>
-                  <textarea
-                    id="mensaje"
-                    name="mensaje"
-                    rows="4"
-                    placeholder="Escribe tu mensaje..."
-                    className="mt-1 block w-full rounded-md border border-gray-300 shadow-sm p-2 focus:ring-blue-500 focus:border-blue-500"
-                    required
-                  />
-                </div>
-
-                {/* Botón */}  
-              <div className="text-center">
-                <button
-                  type="submit"
-                  disabled={loading}
-                  className="w-full bg-prop-red-button text-white font-semibold py-2 px-4 rounded-full transition-colors flex items-center justify-center disabled:opacity-60 disabled:cursor-not-allowed"
-                >
-                  {loading ? (
-                    <div className="w-5 h-5 border-4 border-white border-t-transparent rounded-full animate-spin"></div>
-                  ) : (
-                    "Enviar"
-                  )}
-                </button>
-              </div>
-
-              </form>
-
-                <ModalAviso
-                  show={showMsg}
-                  message={modalMsg}
-                  onClose={() => setShowMsg(false)}
-                />
-
-            </div>
-          </div>
-
         </div>
 
+        <div className="rounded-3xl border border-slate-200 bg-white p-8 shadow-sm">
+          <form className="space-y-5" onSubmit={handleSubmit}>
+            <div>
+              <label htmlFor="nombre" className="text-sm font-medium text-slate-700">Nombre</label>
+              <input type="text" id="nombre" name="nombre" placeholder="Tu nombre" className={inputStyle} required />
+            </div>
+            <div>
+              <label htmlFor="correo" className="text-sm font-medium text-slate-700">Correo</label>
+              <input type="email" id="correo" name="correo" placeholder="tu@empresa.com" className={inputStyle} required />
+            </div>
+            <div>
+              <label htmlFor="mensaje" className="text-sm font-medium text-slate-700">¿Qué te gustaría automatizar?</label>
+              <textarea id="mensaje" name="mensaje" rows="5" placeholder="Describe el proceso o la idea..." className={inputStyle} required />
+            </div>
+            <button
+              type="submit"
+              disabled={loading}
+              className="btn-primary w-full disabled:opacity-60 disabled:cursor-not-allowed"
+            >
+              {loading ? (
+                <div className="w-5 h-5 border-4 border-white border-t-transparent rounded-full animate-spin"></div>
+              ) : (
+                "Enviar mensaje"
+              )}
+            </button>
+          </form>
+
+          <ModalAviso
+            show={showMsg}
+            message={modalMsg}
+            onClose={() => setShowMsg(false)}
+          />
+        </div>
       </div>
-      
     </div>
-    
   );
 }
 

@@ -1,8 +1,16 @@
 import React, { Suspense, useEffect, useRef } from "react";
+import { Link } from "react-router-dom";
+import { HashLink } from "react-router-hash-link";
 
 const Spline = React.lazy(() => import("@splinetool/react-spline"));
 
 const SCENE_URL = "https://prod.spline.design/zjJJT0RUz8a8puXc/scene.splinecode";
+
+const stats = [
+  { value: "+20", label: "años convirtiendo datos en decisiones" },
+  { value: "ERP + IA", label: "integración nativa con tu operación" },
+  { value: "A medida", label: "automatización para cada proceso" },
+];
 
 function isSectionVisible(element) {
   if (!element || document.visibilityState === "hidden") return false;
@@ -80,17 +88,13 @@ function Inicio() {
   };
 
   return (
-    <div
+    <section
       id="inicio"
       ref={sectionRef}
-      className="relative h-[400px] overflow-hidden shadow-2xl"
+      className="relative min-h-[560px] md:min-h-[620px] overflow-hidden flex flex-col"
     >
-      <div className="absolute inset-0 overflow-hidden bg-prop-red">
-        <Suspense
-          fallback={
-            <div className="w-full h-[400px] bg-gray-200 animate-pulse rounded-lg" />
-          }
-        >
+      <div className="absolute inset-0 overflow-hidden bg-brand">
+        <Suspense fallback={<div className="w-full h-full bg-brand" />}>
           <Spline
             scene={SCENE_URL}
             onLoad={handleLoad}
@@ -98,18 +102,51 @@ function Inicio() {
           />
         </Suspense>
       </div>
+      <div className="pointer-events-none absolute inset-0 bg-gradient-to-r from-slate-950/90 via-slate-950/65 to-slate-950/10" />
 
-      <div className="relative z-10 flex flex-col md:flex-row items-center justify-between w-full mt-40 px-6 md:px-12">
-        <div className="md:w-1/2 text-white ">
-          <h2 className="text-3xl md:text-5xl font-bold mb-4">
-            Bienvenido a <span className="italic"> DATAIntelligenz</span>
-          </h2>
-          <p className="text-base md:text-lg text-justify">
-            Inteligencia artificial y automatización de procesos conectadas a tu ERP, con más de 20 años de experiencia convirtiendo datos en decisiones.
-          </p>
+      <div className="relative z-10 flex-grow flex items-center">
+        <div className="max-w-7xl w-full mx-auto px-6 py-20">
+          <div className="max-w-2xl text-white">
+            <span className="inline-flex items-center gap-2 rounded-full border border-white/25 bg-white/10 px-4 py-1.5 text-xs font-semibold uppercase tracking-[0.18em] backdrop-blur">
+              <span className="h-2 w-2 rounded-full bg-rose-400" />
+              IA y Automatización Empresarial
+            </span>
+            <h1 className="font-display mt-6 text-4xl md:text-6xl font-extrabold leading-[1.05] tracking-tight">
+              Datos que deciden.
+              <br />
+              <span className="text-rose-300">Procesos que se automatizan.</span>
+            </h1>
+            <p className="mt-6 text-base md:text-lg text-slate-200 leading-relaxed">
+              Conectamos inteligencia artificial y automatización a tu ERP para eliminar
+              el trabajo manual y anticipar decisiones. Más de 20 años convirtiendo datos
+              en resultados.
+            </p>
+            <div className="mt-8 flex flex-wrap gap-3">
+              <HashLink smooth to="/#ia-automatizacion" className="btn-primary">
+                Explorar soluciones IA
+              </HashLink>
+              <Link
+                to="/contacto"
+                className="inline-flex items-center justify-center rounded-full border border-white/40 px-6 py-3 text-sm font-semibold text-white transition hover:bg-white hover:text-slate-900"
+              >
+                Solicitar diagnóstico
+              </Link>
+            </div>
+          </div>
         </div>
       </div>
-    </div>
+
+      <div className="relative z-10 border-t border-white/15 bg-slate-950/50 backdrop-blur">
+        <dl className="max-w-7xl mx-auto px-6 py-5 grid grid-cols-1 sm:grid-cols-3 gap-4 text-white">
+          {stats.map((stat) => (
+            <div key={stat.label} className="flex items-baseline gap-3">
+              <dt className="font-display text-2xl font-bold text-rose-300">{stat.value}</dt>
+              <dd className="text-sm text-slate-300">{stat.label}</dd>
+            </div>
+          ))}
+        </dl>
+      </div>
+    </section>
   );
 }
 

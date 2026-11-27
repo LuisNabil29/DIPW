@@ -12,8 +12,16 @@ const iconMap = {
   faFile: faFile,
 };
 
-function Desarrollos() {
+const categories = [
+  { value: "All", label: "Todos" },
+  { value: "Webs", label: "Webs" },
+  { value: "Apps Móviles", label: "Apps Móviles" },
+  { value: "Integraciones", label: "Integraciones" },
+];
 
+const actionStyle = "inline-flex items-center gap-2 rounded-full border border-slate-200 px-3 py-1.5 text-xs font-semibold text-slate-700 transition hover:border-brand hover:text-brand";
+
+function Desarrollos() {
 
   //useEffect para obtner los datos de el xml para las cards de desarrollos
   const [cardsData, setCardsData] = useState([]);
@@ -46,7 +54,6 @@ function Desarrollos() {
       .catch((e) => console.error("Error cargando XML", e));
   }, []);
 
-
   //Apartado para filtrar por categorias
   const [selectedCategory, setSelectedCategory] = useState("All");
   const [selectedCard, setSelectedCard] = useState(null);
@@ -56,162 +63,95 @@ function Desarrollos() {
     ? cardsData
     : cardsData.filter((c) => c.category === selectedCategory);
 
+  const openContent = (card, type) => {
+    setSelectedCard(card);
+    setContentType(type);
+  };
 
-  const categories = ["All", "Webs", "Apps Móviles", "Integraciones"];
-
-  
-
-
-  //Vista
   return (
-    <div className="relative w-full py-14">
-      <div className="absolute top-0 left-0 w-full overflow-hidden leading-none">
-        <svg
-          className="relative block w-full h-14"
-          xmlns="http://www.w3.org/2000/svg"
-          viewBox="0 0 1440 120"
-          preserveAspectRatio="none"
-        >
-          <path
-            fill="#e5e7eb" // color del div de arriba
-            d="M0,0 C480,120 960,0 1440,120 L1440,0 L0,0 Z"
-          ></path>
-        </svg>
-      </div>
+    <section className="w-full bg-slate-50 py-24 border-t border-slate-200">
+      <div className="max-w-7xl mx-auto px-6">
+        <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6">
+          <div className="max-w-2xl">
+            <span className="section-eyebrow">Apps y Desarrollos</span>
+            <h2 className="section-title mt-3">Productos que ya automatizan empresas</h2>
+            <p className="section-lead">
+              Soluciones construidas sobre el ERP que resuelven cobranza, flujo de efectivo,
+              contabilidad y relación con proveedores.
+            </p>
+          </div>
 
-            
-      <div className="px-6 md:px-20">
-        <h2 className="text-3xl font-bold font-poppins text-black mb-6 text-center">
-          Apps & Desarrollos
-        </h2>
-
-        {/* Filtros */}
-        <div className="flex flex-wrap justify-center gap-4 mb-10">
-          {categories.map((cat) => (
-            <button
-              key={cat}
-              onClick={() => setSelectedCategory(cat)}
-              className={`px-4 py-2 rounded-full text-sm font-semibold transition 
-                ${selectedCategory === cat
-                  ? "bg-prop-red text-white"
-                  : "bg-white text-gray-700 hover:bg-gray-200"
+          <div className="flex flex-wrap gap-2">
+            {categories.map((cat) => (
+              <button
+                key={cat.value}
+                onClick={() => setSelectedCategory(cat.value)}
+                className={`rounded-full px-4 py-2 text-sm font-semibold transition ${
+                  selectedCategory === cat.value
+                    ? "bg-slate-900 text-white"
+                    : "bg-white text-slate-600 border border-slate-200 hover:border-brand hover:text-brand"
                 }`}
-            >
-              {cat}
-            </button>
-          ))}
+              >
+                {cat.label}
+              </button>
+            ))}
+          </div>
         </div>
 
-        {/* Cards */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+        <div className="mt-12 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           <AnimatePresence>
             {filteredCards.map((card) => (
-              <Motion.div
+              <Motion.article
                 key={card.id}
-                initial={{ opacity: 0, scale: 0.9, y: 30 }}
-                animate={{ opacity: 1, scale: 1, y: 0 }}
-                exit={{ opacity: 0, scale: 0.9, y: 30 }}
-                transition={{ duration: 0.35, easing: "ease-in-out" }}
-                className="bg-gray-100 rounded-lg shadow-lg p-6 flex flex-col justify-between text-center 
-                font-raleway hover:scale-105 hover:shadow-2xl transition-transform min-h-[120px] 
-                border border-slate-300 hover:border-rose-700
-                shadow-[0_0_12px_rgba(190,18,60,0.25)]
-                hover:shadow-[0_0_20px_rgba(190,18,60,0.45)]"
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: 20 }}
+                transition={{ duration: 0.3 }}
+                className="group flex flex-col overflow-hidden rounded-2xl border border-slate-200 bg-white transition hover:border-brand/40 hover:shadow-lg"
               >
-                <div>
-                  
-                  <h3 className="text-xl font-bold mb-2">{card.title}</h3>
-
-                  {card.imgUrl && (
-                    <img 
+                {card.imgUrl && (
+                  <div className="aspect-[4/3] overflow-hidden bg-slate-100">
+                    <img
                       src={card.imgUrl}
                       alt={card.title}
-                      className="w-full max-w-[220px] mx-auto h-auto rounded-lg mb-3 object-contain"
+                      className="h-full w-full object-cover transition duration-500 group-hover:scale-105"
                       loading="lazy"
                     />
-                  )}
+                  </div>
+                )}
 
+                <div className="flex flex-grow flex-col p-6">
+                  <span className="text-xs font-semibold uppercase tracking-wider text-brand">
+                    {card.category}
+                  </span>
+                  <h3 className="font-display mt-2 text-xl font-bold text-slate-900">{card.title}</h3>
                   {card.description && (
-                    <p className="text-slate-800 text-base font-medium leading-snug mb-3">{card.description}</p>
+                    <p className="mt-2 text-sm leading-relaxed text-slate-600">{card.description}</p>
                   )}
 
-                  <p className="text-gray-600 text-sm mb-1">Más información:</p>
+                  <div className="mt-auto flex flex-wrap gap-2 pt-5">
+                    {card.siteUrl && (
+                      <a href={card.siteUrl} target="_blank" rel="noopener noreferrer" className={actionStyle} title="Abrir sitio">
+                        <FontAwesomeIcon icon={faGlobe} /> Sitio
+                      </a>
+                    )}
+                    {card.pdfUrl && (
+                      <button className={actionStyle} title="Ver ficha PDF" onClick={() => openContent(card, "pdf")}>
+                        <FontAwesomeIcon icon={faFile} /> Ficha
+                      </button>
+                    )}
+                    {card.videoUrl && (
+                      <button className={actionStyle} title="Ver video" onClick={() => openContent(card, "video")}>
+                        <FontAwesomeIcon icon={faYoutube} /> Video
+                      </button>
+                    )}
+                  </div>
                 </div>
-
-
-                {/* Iconos de acción */}
-                <div className="flex items-center justify-center gap-5 mt-auto">
-                  {card.siteUrl && (
-                    <a
-                      href={card.siteUrl}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="group w-10 h-10 flex items-center justify-center
-                                rounded-full bg-gray-200
-                                hover:bg-red-800
-                                transition-colors cursor-pointer"
-                      title="Abrir sitio"
-                    >
-                      <FontAwesomeIcon
-                        icon={faGlobe}
-                        className="text-red-800 text-2xl
-                                  group-hover:text-gray-200
-                                  transition-colors"
-                      />
-                    </a>
-                  )}
-
-                  {card.pdfUrl && (
-                  <button
-                      className="group w-10 h-10 flex items-center justify-center
-                                rounded-full bg-gray-200
-                                hover:bg-red-800
-                                transition-colors cursor-pointer"
-                      title="Ver ficha PDF"
-                      onClick={() => {
-                        setSelectedCard(card);
-                        setContentType("pdf");
-                      }}
-                    >
-                      <FontAwesomeIcon
-                        icon={faFile}
-                        className="text-red-800 text-2xl
-                                  group-hover:text-gray-200
-                                  transition-colors"
-                      />
-                    </button>
-                  )}
-
-                  {/* Botón Video */}
-                  {card.videoUrl && (
-                    <button
-                      className="group w-10 h-10 flex items-center justify-center 
-                                rounded-full bg-gray-200 
-                                hover:bg-red-800
-                                transition-colors cursor-pointer"
-                      title="Ver video"
-                      onClick={() => {
-                        setSelectedCard(card);
-                        setContentType("video");
-                      }}
-                    >
-                      <FontAwesomeIcon 
-                        icon={faYoutube} 
-                        className="text-red-800 text-2xl
-                                  group-hover:text-gray-200
-                                  transition-colors" />
-                    </button>
-                  )}
-                </div>
-
-
-              </Motion.div>
+              </Motion.article>
             ))}
           </AnimatePresence>
         </div>
-
       </div>
-
 
       {/* Modal para PDF o Video */}
       <ModalDesarrollos
@@ -242,8 +182,7 @@ function Desarrollos() {
           </div>
         )}
       </ModalDesarrollos>
-    </div>
-
+    </section>
   );
 }
 

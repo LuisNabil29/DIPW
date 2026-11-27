@@ -3,57 +3,65 @@
 @plugin "@tailwindcss/typography";
 
 @theme {
-  --font-poppins: "Poppins", system-ui, sans-serif;
-  --font-raleway: "Raleway", system-ui, sans-serif;
+  --font-sans: "Inter", system-ui, sans-serif;
+  --font-display: "Plus Jakarta Sans", "Inter", system-ui, sans-serif;
+  --color-brand: #a9173e;
+  --color-brand-dark: #8b1434;
+  --color-brand-soft: #fbeef2;
 }
 
 html {
   scroll-behavior: smooth;
 }
 
-/* Variables globales seguras */
+/* La barra de navegación es fija y taparía el inicio de cada sección */
+[id] {
+  scroll-margin-top: 72px;
+}
+
 :root {
-  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
   font-weight: 400;
-  /* color-scheme: light dark; color del fondo*/ 
+  color: #0f172a;
+  background-color: #ffffff;
 }
 
 body {
-  margin: 0; /* Tailwind utilities manejarán layout */
+  margin: 0;
+  font-family: var(--font-sans);
 }
-
-/* Media queries opcionales para esquema de color */
-@media (prefers-color-scheme: light) {
-  :root {
-    color: #213547;
-    background-color: #ffffff;
-  }
-}
-
-
 
 /* Colores propios/definidos por DataIntelligenz */
-/* Fondo rojo */
-.bg-prop-red{
+.bg-prop-red {
   background-color: #a9173e;
 }
-/* Texto rojo */
-.text-prop-red{
+.text-prop-red {
   color: #a9173e;
 }
-
-.bg-prop-red-button{
+.bg-prop-red-button {
   background-color: #a9173e;
 }
-.bg-prop-red-button:hover{
+.bg-prop-red-button:hover {
   background-color: #8b1434;
 }
-
-/*aplica para fondos de bloques que necesiten contraste neutro (grises), como secciones secundarias, barras informativas o contenedores discretos.*/
-.bg-prop-gray{
+.bg-prop-gray {
   background-color: #77777b;
 }
 
+/* Encabezado común de sección */
+.section-eyebrow {
+  @apply inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.18em] text-brand;
+}
+.section-title {
+  @apply font-display text-3xl md:text-4xl font-bold tracking-tight text-slate-900;
+}
+.section-lead {
+  @apply mt-4 text-base md:text-lg text-slate-600 leading-relaxed;
+}
 
-/* Agregar aqui debajo las clases(personalizadas) que se requieran para la pagina */
+.btn-primary {
+  @apply inline-flex items-center justify-center gap-2 rounded-full bg-brand px-6 py-3 text-sm font-semibold text-white shadow-sm transition hover:bg-brand-dark;
+}
+.btn-secondary {
+  @apply inline-flex items-center justify-center gap-2 rounded-full border border-slate-300 bg-white px-6 py-3 text-sm font-semibold text-slate-800 transition hover:border-brand hover:text-brand;
+}

@@ -5,26 +5,25 @@ function BlogCard({ post }) {
   return (
     <Link
       to={`/blog/${post.slug}`}
-      className="group bg-white rounded-lg shadow-lg p-6 flex flex-col text-left font-raleway border border-transparent hover:border-rose-700 hover:shadow-2xl transition"
+      className="group flex flex-col overflow-hidden rounded-2xl border border-slate-200 bg-white transition hover:-translate-y-1 hover:border-brand/40 hover:shadow-lg"
     >
-      {post.cover && (
-        <img
-          src={post.cover}
-          alt={post.title}
-          className="w-full h-44 object-cover rounded-md mb-4"
-          loading="lazy"
-        />
+      {post.cover ? (
+        <img src={post.cover} alt={post.title} className="aspect-[16/9] w-full object-cover" loading="lazy" />
+      ) : (
+        <div className="aspect-[16/9] w-full bg-gradient-to-br from-slate-900 via-slate-800 to-brand p-6 flex items-end">
+          <span className="font-display text-sm font-semibold text-white/80">{post.category}</span>
+        </div>
       )}
-      <span className="text-xs font-semibold uppercase tracking-wide text-prop-red mb-2">
-        {post.category}
-      </span>
-      <h3 className="text-lg font-bold font-poppins text-gray-900 mb-2 group-hover:text-prop-red transition-colors">
-        {post.title}
-      </h3>
-      <p className="text-sm text-gray-700 mb-4 flex-grow">{post.excerpt}</p>
-      <div className="text-xs text-gray-500 flex justify-between">
-        <span>{formatPostDate(post.date)}</span>
-        <span>{post.readTime} min de lectura</span>
+      <div className="flex flex-grow flex-col p-6">
+        <div className="flex items-center gap-3 text-xs text-slate-500">
+          <span className="rounded-full bg-brand-soft px-2.5 py-1 font-semibold text-brand">{post.category}</span>
+          <span>{post.readTime} min</span>
+        </div>
+        <h3 className="font-display mt-4 text-lg font-bold leading-snug text-slate-900 transition-colors group-hover:text-brand">
+          {post.title}
+        </h3>
+        <p className="mt-3 flex-grow text-sm leading-relaxed text-slate-600">{post.excerpt}</p>
+        <span className="mt-5 text-xs text-slate-500">{formatPostDate(post.date)}</span>
       </div>
     </Link>
   );

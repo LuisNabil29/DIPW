@@ -2,35 +2,27 @@ function ModalDesarrollos({ show, onClose, title, children }) {
   if (!show) return null;
 
   return (
-    <>
+    <div
+      className="fixed inset-0 z-50 flex items-center justify-center bg-slate-950/60 backdrop-blur-sm px-4"
+      onClick={onClose}
+    >
       <div
-        className="fixed inset-0 z-40"
-        onClick={onClose} // con clic fuera se cierra
-      />
-
-      {/* Contenedor modal centrado */}
-      <div
-        className="fixed inset-0 flex items-center justify-center z-50 px-4"
-        onClick={onClose} //Detecta clic fuera del modal
+        className="relative w-full max-w-4xl rounded-2xl bg-white p-5 md:p-6 shadow-2xl max-h-[90vh] overflow-y-auto"
+        onClick={(e) => e.stopPropagation()}
       >
-        <div
-          className="bg-gray-100 rounded-lg shadow-lg max-w-3xl w-full p-4 md:p-6 relative border border-slate-400 max-h-[60vh] overflow-y-auto md:max-h-none"
-          onClick={(e) => e.stopPropagation()} // Evita cierre si clic dentro
-        >
-          {/* Botón cerrar (X) */}
+        <div className="mb-4 flex items-center justify-between gap-4">
+          <h3 className="font-display text-lg font-bold text-slate-900">{title}</h3>
           <button
             onClick={onClose}
-            className="absolute top-3 right-3 text-gray-500 hover:text-red-600 text-2xl font-bold"
+            aria-label="Cerrar"
+            className="flex h-9 w-9 items-center justify-center rounded-full text-xl text-slate-500 transition hover:bg-slate-100 hover:text-brand"
           >
             ×
           </button>
-
-          {/* Contenido */}
-          <h3 className="text-lg font-semibold mb-4 text-center">{title}</h3>
-          {children}
         </div>
+        {children}
       </div>
-    </>
+    </div>
   );
 }
 

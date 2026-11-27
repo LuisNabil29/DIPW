@@ -9,7 +9,7 @@ function App() {
       <ScrollToTop />
       <Navbar />
 
-        <main className="flex-grow pt-5 ">
+        <main className="flex-grow pt-[69px]">
           <AppRoutes />
         </main>
 

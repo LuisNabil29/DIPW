@@ -16,11 +16,9 @@ function BlogPost() {
 
   if (!post) {
     return (
-      <div className="text-center px-6 py-32 text-gray-800">
-        <h1 className="text-3xl font-bold font-poppins mb-4">Artículo no encontrado</h1>
-        <Link to="/blog" className="text-prop-red font-semibold hover:underline">
-          Volver al blog
-        </Link>
+      <div className="px-6 py-32 text-center">
+        <h1 className="section-title">Artículo no encontrado</h1>
+        <Link to="/blog" className="btn-secondary mt-8">Volver al blog</Link>
       </div>
     );
   }
@@ -28,61 +26,59 @@ function BlogPost() {
   const related = getRelatedPosts(post);
 
   return (
-    <article className="w-full px-6 py-16 md:px-20 text-gray-800">
-      <div className="max-w-3xl mx-auto mt-8">
-        <Link to="/blog" className="text-sm text-prop-red font-semibold hover:underline">
-          ← Volver al blog
-        </Link>
+    <article className="w-full">
+      <header className="border-b border-slate-200 bg-slate-50">
+        <div className="max-w-3xl mx-auto px-6 py-16">
+          <Link to="/blog" className="text-sm font-semibold text-brand hover:underline">
+            ← Volver al blog
+          </Link>
+          <span className="mt-8 block section-eyebrow">{post.category}</span>
+          <h1 className="font-display mt-3 text-3xl md:text-5xl font-extrabold leading-tight tracking-tight text-slate-900">
+            {post.title}
+          </h1>
+          <p className="mt-5 text-lg text-slate-600">{post.excerpt}</p>
+          <p className="mt-6 text-sm text-slate-500">
+            {post.author} · {formatPostDate(post.date)} · {post.readTime} min de lectura
+          </p>
+        </div>
+      </header>
 
-        <span className="block mt-6 text-xs font-semibold uppercase tracking-wide text-prop-red">
-          {post.category}
-        </span>
-        <h1 className="text-3xl md:text-4xl font-bold font-poppins mt-2 mb-4">
-          {post.title}
-        </h1>
-        <p className="text-sm text-gray-500 mb-8">
-          {post.author} · {formatPostDate(post.date)} · {post.readTime} min de lectura
-        </p>
-
-        {post.cover && (
-          <img src={post.cover} alt={post.title} className="w-full rounded-lg mb-8" />
-        )}
+      <div className="max-w-3xl mx-auto px-6 py-14">
+        {post.cover && <img src={post.cover} alt={post.title} className="mb-10 w-full rounded-2xl" />}
 
         <MarkdownContent
           content={post.content}
-          className="prose prose-lg max-w-none font-raleway prose-headings:font-poppins prose-a:text-[#a9173e]"
+          className="prose prose-slate prose-lg max-w-none prose-headings:font-display prose-headings:tracking-tight prose-a:text-brand prose-strong:text-slate-900 prose-blockquote:border-l-brand prose-th:text-left"
         />
 
         {post.tags.length > 0 && (
-          <div className="flex flex-wrap gap-2 mt-10">
+          <div className="mt-12 flex flex-wrap gap-2">
             {post.tags.map((tag) => (
-              <span key={tag} className="px-3 py-1 rounded-full bg-gray-200 text-xs text-gray-700">
+              <span key={tag} className="rounded-full bg-slate-100 px-3 py-1 text-xs font-medium text-slate-600">
                 #{tag}
               </span>
             ))}
           </div>
         )}
 
-        <div className="mt-12 p-6 rounded-lg bg-gray-100 text-center">
-          <p className="font-poppins font-bold text-lg mb-3">
-            ¿Quieres aplicar esto en tu empresa?
-          </p>
-          <Link
-            to="/contacto"
-            className="inline-block px-6 py-2 rounded-full bg-prop-red-button text-white font-semibold transition-colors"
-          >
-            Hablemos
-          </Link>
+        <div className="mt-14 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 rounded-2xl bg-slate-900 p-8 text-white">
+          <div>
+            <p className="font-display text-lg font-bold">¿Quieres aplicar esto en tu empresa?</p>
+            <p className="mt-1 text-sm text-slate-300">Revisamos tu proceso y te proponemos un primer paso.</p>
+          </div>
+          <Link to="/contacto" className="btn-primary">Hablemos</Link>
         </div>
       </div>
 
       {related.length > 0 && (
-        <div className="max-w-5xl mx-auto mt-16">
-          <h2 className="text-2xl font-bold font-poppins mb-6">Sigue leyendo</h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            {related.map((item) => (
-              <BlogCard key={item.slug} post={item} />
-            ))}
+        <div className="border-t border-slate-200 bg-slate-50">
+          <div className="max-w-5xl mx-auto px-6 py-16">
+            <h2 className="font-display text-2xl font-bold text-slate-900">Sigue leyendo</h2>
+            <div className="mt-8 grid grid-cols-1 md:grid-cols-2 gap-6">
+              {related.map((item) => (
+                <BlogCard key={item.slug} post={item} />
+              ))}
+            </div>
           </div>
         </div>
       )}

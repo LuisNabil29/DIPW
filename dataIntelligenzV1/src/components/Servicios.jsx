@@ -53,51 +53,32 @@ function Servicios() {
   }, []);
 
   return (
-    <div className="relative bg-gray-200 w-full py-14">
-      {/* SVG de onda */}
-      <div className="absolute top-0 left-0 w-full overflow-hidden leading-none">
-        <svg
-          className="relative block w-full h-14"
-          xmlns="http://www.w3.org/2000/svg"
-          viewBox="0 0 1440 120"
-          preserveAspectRatio="none"
-        >
-          <path
-            fill="#ffffff"
-            d="M0,60
-              C144,0,288,120,432,60
-              C576,0,720,120,864,60
-              C1008,0,1152,120,1296,60
-              C1368,30,1440,90,1440,90
-              L1440,0 L0,0 Z"
-          ></path>
-        </svg>
-      </div>
+    <section className="w-full bg-white py-24">
+      <div className="max-w-7xl mx-auto px-6">
+        <div className="text-center max-w-2xl mx-auto">
+          <span className="section-eyebrow">Servicios</span>
+          <h2 className="section-title mt-3">Lo que ofrecemos</h2>
+          <p className="section-lead">
+            De la estrategia de IA a la infraestructura: un solo equipo para todo el ciclo de tus datos.
+          </p>
+        </div>
 
-      <div className="px-6 md:px-20 my-9">
-        <h2 className="text-3xl font-bold font-poppins text-black mb-12 text-center">
-          LO QUE OFRECEMOS
-        </h2>
-
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="mt-14 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {cards.map((card) => (
             <div
               key={card.id}
-              className="bg-white rounded-lg shadow-lg p-6 flex flex-col items-center text-center font-raleway transition-transform duration-300 hover:scale-105 hover:shadow-2xl"
+              className="rounded-2xl border border-slate-200 bg-white p-7 transition hover:border-brand/40 hover:shadow-lg"
             >
-              <FontAwesomeIcon
-                icon={card.icon}
-                className="text-prop-red text-4xl mb-4"
-              />
-
-              <h3 className="text-xl font-bold mb-2">{card.title}</h3>
-
-              <p className="text-black text-sm text-justify">{card.text}</p>
+              <span className="flex h-12 w-12 items-center justify-center rounded-xl bg-slate-900 text-white">
+                <FontAwesomeIcon icon={card.icon} className="text-lg" />
+              </span>
+              <h3 className="font-display mt-5 text-lg font-bold text-slate-900">{card.title}</h3>
+              <p className="mt-3 text-sm leading-relaxed text-slate-600">{card.text}</p>
             </div>
           ))}
         </div>
       </div>
-    </div>
+    </section>
   );
 }
 
